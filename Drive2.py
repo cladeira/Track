@@ -1,6 +1,6 @@
 from flask import Flask
 import socketio
-#import eventlet
+import eventlet
 #from gevent.pywsgi import WSGIServer
 
 
@@ -28,6 +28,6 @@ def send_control(steering_angle, throttle):
 if __name__ == '__main__':
 	app = socketio.Middleware(sio, app)
     #WSGIServer(('', 4567), app).serve_forever()
-    #eventlet.wsgi.server(eventlet.listen(('', 4567)), app)
+    eventlet.wsgi.server(eventlet.listen(('', 4567)), app)
     #print('Serving on 8088...')
     #WSGIServer(('127.0.0.1', 8088), app).serve_forever()
